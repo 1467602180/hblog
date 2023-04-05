@@ -1,4 +1,18 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  integrations: [tailwind(), mdx()],
+  markdown: {
+    remarkPlugins: [
+      () => {
+        return (tree, file) => {
+          file.data.astro.frontmatter.author = "HeStudy";
+        };
+      },
+    ],
+  },
+});
