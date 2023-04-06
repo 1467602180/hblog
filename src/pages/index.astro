@@ -1,32 +1,30 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const posts = await Astro.glob("./post/*.mdx");
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <Layout title="HBlog">
-  <header class="p-2">
-    <h1 class="text-stroke text-2xl dark:text-headline">HBlog</h1>
-  </header>
-  <main class="flex flex-col h-min flex-1 my-2 items-center">
-    {
-      posts.map((post) => {
-        return (
-          <a href={post.url} class="bg-secondary rounded p-2 w-96">
-            <h1 class="text-stroke text-lg">{post.frontmatter.title}</h1>
-            <p class="text-background text-sm">{post.frontmatter.desc}</p>
-            <div class="flex text-sm text-main justify-end">
-              {post.frontmatter.created}
-            </div>
-          </a>
-        );
-      })
-    }
+  <Header />
+  <main class="h-min flex-1 my-2">
+    <div class="grid grid-cols-3 max-sm:grid-cols-1 gap-4">
+      {
+        posts.map((post) => {
+          return (
+            <a href={post.url} class="bg-neutral rounded p-4 space-y-2">
+              <h1 class="text-xl">{post.frontmatter.title}</h1>
+              <p class="text-base">{post.frontmatter.desc}</p>
+              <div class="text-sm flex justify-end">
+                {post.frontmatter.created}
+              </div>
+            </a>
+          );
+        })
+      }
+    </div>
   </main>
-  <footer
-    class="flex text-sm text-background py-2 justify-center dark:text-paragraph"
-  >
-    基于{Astro.generator}创造 | 始于2023.04.05
-  </footer>
+  <Footer />
 </Layout>
 
 <style></style>

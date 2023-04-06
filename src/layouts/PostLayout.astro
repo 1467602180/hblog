@@ -1,22 +1,21 @@
 ---
+import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+
 const { frontmatter } = Astro.props;
 ---
 
-<html lang="zh">
+<html lang="zh" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{frontmatter.title}</title>
   </head>
-  <body class="container bg-main flex flex-col h-screen mx-auto p-2">
-    <header>
-      <h1 class="text-stroke text-2xl dark:text-headline">HBlog</h1>
-    </header>
-    <article
-      class="bg-secondary rounded h-max mx-auto flex-1 w-full p-4 prose prose-h1:mb-0 prose-h1:text-2xl"
-    >
+  <body class="flex flex-col h-screen mx-auto container">
+    <Header />
+    <main class="h-min mx-auto flex-1 w-full p-4 prose">
       <h1 class="text-2xl">{frontmatter.title}</h1>
       <p class="text-sm">
         作者: {frontmatter.author}
@@ -24,11 +23,7 @@ const { frontmatter } = Astro.props;
         >
       </p>
       <slot />
-    </article>
-    <footer
-      class="flex mt-2 text-sm text-background justify-center dark:text-paragraph"
-    >
-      基于{Astro.generator}创造 | 始于2023.04.05
-    </footer>
+    </main>
+    <Footer />
   </body>
 </html>
