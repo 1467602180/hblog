@@ -1,28 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-const posts = await Astro.glob("./post/*.mdx");
-import Header from "../components/header.astro";
+import { Home } from "../components/Home";
 import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="HBlog">
+<Layout title="My name HeStudy">
   <Header />
-  <main class="h-min flex-1 my-2">
-    <div class="grid grid-cols-3 max-sm:grid-cols-1 gap-4">
-      {
-        posts.map((post) => {
-          return (
-            <a href={post.url} class="bg-neutral rounded p-4 space-y-2">
-              <h1 class="text-xl">{post.frontmatter.title}</h1>
-              <p class="text-base">{post.frontmatter.desc}</p>
-              <div class="text-sm flex justify-end">
-                {post.frontmatter.created}
-              </div>
-            </a>
-          );
-        })
-      }
-    </div>
+  <main class="h-0 flex-1 my-2">
+    <Home />
   </main>
   <Footer />
 </Layout>

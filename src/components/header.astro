@@ -1,5 +1,16 @@
+---
+import Image from "astro/components/Image.astro";
+import logo from "../assets/logo.png";
+---
+
 <header>
-  <div class="navbar bg-base-100">
-    <a class="btn btn-ghost normal-case text-xl" href="/">HBlog</a>
+  <div class="navbar bg-base-100 flex justify-between">
+    <a class="btn btn-ghost normal-case text-xl max-sm:hidden" href="/"
+      ><img src={logo} alt="logo" class="w-10 h-auto rounded mr-2" /> My name HeStudy</a
+    >
+    <div class="space-x-2">
+      <a class="btn btn-ghost" href="/">Home 首页</a>
+      <a class="btn btn-ghost" href="/blog">Blog 博客</a>
+    </div>
   </div>
 </header>
