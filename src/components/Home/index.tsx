@@ -25,7 +25,7 @@ export function Home({}: HomeProps) {
           />
         </div>
       </div>
-      <div className="carousel-item h-full max-xl:overflow-y-auto flex flex-col md:justify-center items-center">
+      <div className="carousel-item h-full max-2xl:overflow-y-auto flex flex-col 2xl:justify-center items-center">
         <div className="text-4xl text-center leading-relaxed font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary">
           My experience
           <br />
