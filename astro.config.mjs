@@ -8,10 +8,15 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwind(), mdx(), react()],
   markdown: {
-    remarkPlugins: [() => {
-      return (tree, file) => {
-        file.data.astro.frontmatter.author = "HeStudy";
-      };
-    }]
-  }
+    remarkPlugins: [
+      () => {
+        return (tree, file) => {
+          file.data.astro.frontmatter.author = "HeStudy";
+        };
+      },
+    ],
+  },
+  server: {
+    port: 5000,
+  },
 });
